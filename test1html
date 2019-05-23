@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <h1> hello world!!!
+    </h1>
+    <body>
+    <b>Testing it </b>
+       <p> <a href="https://www.google.gr"> google here </a></p> 
+    </body>
+    <script type="text/javascript">
+    
+        function print(){
+          //  var text1= document.getElementById('text1');
+            var inputOfText1= document.getElementById('text1').nodeValue;
+            
+            var t1Element= document.createElement('h1');
+            var textOft1Element= document.createTextNode(inputOfText1);
+            t1Element.appendChild(textOft1Element);
+            
+            var div1Area=document.getElementById('div1');
+            div1Area.appendChild(t1Element);
+        }
+    
+    </script>
+    <body>
+        <form>
+            <input type="text" id="text1" value="type here">
+            <input onclick="print()" type="button" id="button1" value="press here">
+            <div id="div1" name="div1Area"> </div>
+
+        
+        
+        </form>
+    
+    
+    </body>
+
+
+</html>
