@@ -1,38 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <h1> hello world!!!
-    </h1>
     <body>
-    <b>Testing it </b>
-       <p> <a href="https://www.google.gr"> google here </a></p> 
-    </body>
-    <script type="text/javascript">
-    
-        function print(){
-          //  var text1= document.getElementById('text1');
-            var inputOfText1= document.getElementById('text1').nodeValue;
-            
-            var t1Element= document.createElement('h1');
-            var textOft1Element= document.createTextNode(inputOfText1);
-            t1Element.appendChild(textOft1Element);
-            
-            var div1Area=document.getElementById('div1');
-            div1Area.appendChild(t1Element);
-        }
-    
-    </script>
-    <body>
-        <form>
-            <input type="text" id="text1" value="type here">
-            <input onclick="print()" type="button" id="button1" value="press here">
-            <div id="div1" name="div1Area"> </div>
+            <p><b> Author:</b> <input id="Author "type="text" > </p>
+            <p><b> Title:</b> <input id="Title" type="text" > </p>
+            <p><b> Genre:</b>  <select id="dropList">
+                                      <option>Science fiction</option>
+                                      <option>Satire</option>
+                                      <option>Drama</option>
+                                      <option>Action and Adventure</option>
+                                      <option>Romance</option>
+                                      <option>Mystery</option>
+                                      <option>Horror</option>
+                                </select> </p>
+            <p><b> Price:</b> <input id="Price" type="text" onkeypress="return isNumberKey(event)"/> </p>
+            <p> <input id="insertButton" type="button" value="Submit Query"></p>
+            <p> <input id="searchBox" type="text">
+                <input id="searchButton" type="button" value="Submit Query"></p>
 
-        
-        
-        </form>
-    
-    
     </body>
+    
+    <script type="text/javascript">
+        
+        //CLIENT IS HERE
+        document.getElementById('insertButton').addEventListener('click',function(){
+                                                                            const xhr = new XMLHttpRequest();
+                                                                            xhr.open('GET','http://localhost:8081',true);
+                                                                            xhr.send();
+                                                                            xhr.onreadystatechange = function(){
+                                                                                if(xhr.readyState == 4 && xhr.status == 200){
+                                                                                    alert(xhr.responseText);
+                                                                                    const myObj = JSON.parse(xhr.responseText);
+                                                                                }
+                                                                            }
+                                                                               
+        })
+        
+
+        function isNumberKey(evt){
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode != 46 &&(charCode < 48 || charCode > 57))){
+                alert("Write only intergers");
+                return false;
+            }
+            return true;
+        }
+        
+        
+    
+//        function print(){
+//          //  var text1= document.getElementById('text1');
+//            var inputOfText1= document.getElementById('text1').value;
+//            
+//            var t1Element= document.createElement('h1');
+//            var textOft1Element= document.createTextNode(inputOfText1);
+//            t1Element.appendChild(textOft1Element);
+//            
+//            var div1Area=document.getElementById('div1');
+//            div1Area.appendChild(t1Element);
+//        }
+//        function alert(){
+//            document.
+//        }
+//    
+    </script>
+
+
 
 
 </html>
