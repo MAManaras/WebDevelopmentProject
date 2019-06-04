@@ -4,13 +4,18 @@ var app = express();
 const cors = require('cors');
 app.use(cors());
 
-app.get('', function(req,res){
-    res.send(JSON.stringify()); //NEED OBJECT THERE 
+app.get('/books/:', function(req,res){
+    //res.send(JSON.stringify()); //NEED OBJECT THERE 
+    res.send("hello");
 });
 
-
-var server = app.listen(8081,function(){
-    var host = sever.address().address;
+                                                              
+var server = app.listen(8081,function(){                                                    
+    var host = server.address().address;
     var port = server.address().port;
-    console.log(`Example app listening at http://${host}:${port}`);
+    console.log(`Starting on http://${host}:${port}`);
 });
+
+app.post('/books/',function(req,res){
+	res.send()
+})	
