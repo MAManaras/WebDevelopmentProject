@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <body>
-            <p><b> Author:</b> <input id="Author "type="text" > </p>
+            <p><b> Author:</b> <input id="Author" type="text" > </p>
             <p><b> Title:</b> <input id="Title" type="text" > </p>
             <p><b> Genre:</b>  <select id="dropList">
                                       <option>Science fiction</option>
@@ -19,23 +19,11 @@
 
     </body>
     
-    <script type="text/javascript">
-        
-        //CLIENT IS HERE
-        document.getElementById('insertButton').addEventListener('click',function(){
-                                                                            const xhr = new XMLHttpRequest();
-                                                                            xhr.open('GET','http://localhost:8081',true);
-                                                                            xhr.send();
-                                                                            xhr.onreadystatechange = function(){
-                                                                                if(xhr.readyState == 4 && xhr.status == 200){
-                                                                                    alert(xhr.responseText);
-                                                                                    const myObj = JSON.parse(xhr.responseText);
-                                                                                }
-                                                                            }
-                                                                               
-        })
-        
+    <script type="text/javascript" src="client.js"></script>
+    <script>
 
+
+//make sure that user write only integers in price textbox
         function isNumberKey(evt){
             var charCode = (evt.which) ? evt.which : event.keyCode
             if (charCode > 31 && (charCode != 46 &&(charCode < 48 || charCode > 57))){
